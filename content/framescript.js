@@ -102,6 +102,7 @@ function DoReplaceEmbed(aNode, aURL) {
   iframe.setAttribute("width", width);
   iframe.setAttribute("height", height);
   iframe.setAttribute("frameborder", 0);
+  iframe.setAttribute("allowfullscreen", "true");
   iframe.setAttribute("src", aURL);
 
   aNode.parentNode.replaceChild(iframe, aNode);
