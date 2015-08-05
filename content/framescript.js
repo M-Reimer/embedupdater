@@ -77,7 +77,7 @@ function OnPageLoad(aEvent) {
   for (var index = embeds.length - 1; index >= 0; index--) {
     var embed = embeds[index];
 
-    var tparent = obj.parentNode.tagName.toLowerCase();
+    var tparent = embed.parentNode.tagName.toLowerCase();
     if (tparent == "embed" || tparent == "object")
       continue;
 
@@ -87,7 +87,7 @@ function OnPageLoad(aEvent) {
 
     url = RewriteEmbedURL(url);
     if (url)
-      DoReplaceEmbed(obj, url);
+      DoReplaceEmbed(embed, url);
   }
 }
 
