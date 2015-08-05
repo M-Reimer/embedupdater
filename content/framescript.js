@@ -21,24 +21,16 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
 function RewriteEmbedURL(aURL) {
-  var newurl;
-
   switch(GetDomainByURL(aURL)) {
     case "www.youtube.com":
-      newurl = aURL.replace("/v/", "/embed/");
-      break;
+      return aURL.replace("/v/", "/embed/");
 
     case "www.dailymotion.com":
-      newurl = aURL.replace("/swf/", "/embed/video/");
-      break;
+      return aURL.replace("/swf/", "/embed/video/");
 
     case "vimeo.com":
-      newurl = aURL.replace(/.*?\/moogaloop.swf.*?clip_id=([^&]+).*/, "https://player.vimeo.com/video/$1");
-      break;
+      return aURL.replace(/.*?\/moogaloop.swf.*?clip_id=([^&]+).*/, "https://player.vimeo.com/video/$1");
   }
-
-  if (newurl != aURL)
-    return newurl;
 }
 
 /*
@@ -68,9 +60,9 @@ function OnPageLoad(aEvent) {
     if (!url)
       continue;
 
-    url = RewriteEmbedURL(url);
-    if (url)
-      DoReplaceEmbed(obj, url);
+    var newurl = RewriteEmbedURL(url);
+    if (newurl && newurl != url)
+      DoReplaceEmbed(obj, newurl);
   }
 
   // Handle embeds
@@ -85,9 +77,9 @@ function OnPageLoad(aEvent) {
     if (!url)
       continue;
 
-    url = RewriteEmbedURL(url);
-    if (url)
-      DoReplaceEmbed(embed, url);
+    var newurl = RewriteEmbedURL(url);
+    if (newurl && newurl != url)
+      DoReplaceEmbed(embed, newurl);
   }
 }
 
