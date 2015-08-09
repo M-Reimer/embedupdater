@@ -7,7 +7,7 @@
     <em:id>{eb8240fc-eee9-4cc7-ab15-12ac64614064}</em:id>
     <em:name>EmbedUpdater</em:name>
     <em:description>Updates video embeds to make use of HTML5 video playback</em:description>
-    <em:version>1.0.0</em:version>
+    <em:version>1.1.0</em:version>
     <em:creator>Manuel Reimer</em:creator>
     <em:homepageURL>https://github.com/M-Reimer/embedupdater</em:homepageURL>
     <em:type>2</em:type>
