@@ -41,12 +41,8 @@ function OnPageLoad(aEvent) {
   var document = aEvent.originalTarget;
   if (document.nodeName != "#document") return; // only documents
 
-  // Get objects and embeds. Out if there are none of them.
-  var objects = document.getElementsByTagName("object");
-  var embeds = document.getElementsByTagName("embed");
-  if (objects.length == 0 && embeds.length == 0) return;
-
   // Handle objects
+  var objects = document.getElementsByTagName("object");
   for (var index = objects.length - 1; index >= 0; index--) {
     var obj = objects[index];
 
@@ -57,6 +53,12 @@ function OnPageLoad(aEvent) {
     var url = obj.getAttribute("data");
     if (!url)
       url = GetObjectParam(obj, "movie");
+    if (!url) { // No URL at all --> Fallback content
+      // The most common case is that we find an <embed> in our <object>
+      var e = obj.getElementsByTagName("embed");
+      if (e.length == 1)
+        url = e[0].getAttribute("src");
+    }
     if (!url)
       continue;
 
@@ -66,6 +68,7 @@ function OnPageLoad(aEvent) {
   }
 
   // Handle embeds
+  var embeds = document.getElementsByTagName("embed");
   for (var index = embeds.length - 1; index >= 0; index--) {
     var embed = embeds[index];
 

@@ -12,23 +12,12 @@
     <h1>Youtube</h1>
     <object height="315"
             width="560">
-      <param name="movie" value="http://www.youtube.com/v/TNP5eBIT8hs">
-      <embed src="http://www.youtube.com/v/TNP5eBIT8hs"
+      <param name="movie" value="http://www.youtube.com/v/9bZkp7q19f0">
+      <embed src="http://www.youtube.com/v/9bZkp7q19f0"
              type="application/x-shockwave-flash"
              height="315"
              width="560">
     </object>
-
-    <h2>Same with embed only</h2>
-    <embed src="http://www.youtube.com/v/TNP5eBIT8hs"
-           type="application/x-shockwave-flash"
-           height="315"
-           width="560">
-
-    <h2>Same with parameter-free object</h2>
-    <object height="315"
-            width="560"
-            data="http://www.youtube.com/v/TNP5eBIT8hs"></object>
 
     <h1>Dailymotion</h1>
     <object height="350"
@@ -57,5 +46,35 @@
              height="450"
              width="800">
     </object>
+
+    <h1>Special cases follow</h1>
+
+    <h2>&lt;object&gt; only</h2>
+    <object height="315"
+            width="560">
+      <param name="movie" value="http://www.youtube.com/v/9bZkp7q19f0">
+    </object>
+
+    <h2>&lt;embed&gt; only</h2>
+    <embed src="http://www.youtube.com/v/9bZkp7q19f0"
+           type="application/x-shockwave-flash"
+           height="315"
+           width="560">
+
+    <h2>Parameter-free &lt;object&gt;</h2>
+    <object height="315"
+            width="560"
+            data="http://www.youtube.com/v/9bZkp7q19f0"></object>
+
+    <h2>Broken &lt;object&gt; around &lt;embed&gt;</h2>
+    <object height="315"
+            width="560">
+      <param name="___movie" value="http://www.youtube.com/v/9bZkp7q19f0">
+      <embed src="http://www.youtube.com/v/9bZkp7q19f0"
+             type="application/x-shockwave-flash"
+             height="315"
+             width="560">
+    </object>
+
   </body>
 </html>
