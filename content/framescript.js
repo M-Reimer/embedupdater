@@ -23,7 +23,10 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 function RewriteEmbedURL(aURL) {
   switch(GetDomainByURL(aURL)) {
     case "www.youtube.com":
-      return aURL.replace("/v/", "/embed/");
+      if (aURL.match(/\/v\//))
+        return aURL.replace("/v/", "/embed/")
+                   .replace(/^([^?]+?)&/, "$1?");
+      return false;
 
     case "www.dailymotion.com":
       return aURL.replace("/swf/", "/embed/video/");
