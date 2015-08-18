@@ -105,7 +105,7 @@ function DoReplaceEmbed(aNode, aURL) {
 
 // Translates full URL to just the domain name
 function GetDomainByURL(aUrl) {
-  if (!aUrl.match(/^https?:\/\/([a-zA-Z0-9\.-]+)\//)) return false;
+  if (!aUrl.match(/^(?:https?:)?\/\/([a-zA-Z0-9\.-]+)\//)) return false;
   return RegExp.$1;
 }
 
