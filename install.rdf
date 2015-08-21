@@ -7,7 +7,7 @@
     <em:id>{eb8240fc-eee9-4cc7-ab15-12ac64614064}</em:id>
     <em:name>EmbedUpdater</em:name>
     <em:description>Updates video embeds to make use of HTML5 video playback</em:description>
-    <em:version>1.1.0</em:version>
+    <em:version>1.2.0</em:version>
     <em:creator>Manuel Reimer</em:creator>
     <em:homepageURL>https://github.com/M-Reimer/embedupdater</em:homepageURL>
     <em:type>2</em:type>
@@ -18,7 +18,7 @@
       <Description>
         <em:id>{ec8030f7-c20a-464f-9b0e-13a3a9e97384}</em:id>
         <em:minVersion>38.0</em:minVersion>
-        <em:maxVersion>43.0</em:maxVersion>
+        <em:maxVersion>44.0</em:maxVersion>
       </Description>
     </em:targetApplication>
 
@@ -27,7 +27,7 @@
       <Description>
         <em:id>{aa3c5121-dab2-40e2-81ca-7ea25febc110}</em:id>
         <em:minVersion>38.0</em:minVersion>
-        <em:maxVersion>43.0</em:maxVersion>
+        <em:maxVersion>44.0</em:maxVersion>
       </Description>
     </em:targetApplication>
   </Description>
