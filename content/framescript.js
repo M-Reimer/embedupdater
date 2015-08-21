@@ -33,6 +33,11 @@ function RewriteEmbedURL(aURL) {
 
     case "vimeo.com":
       return aURL.replace(/.*?\/moogaloop.swf.*?clip_id=([^&]+).*/, "https://player.vimeo.com/video/$1");
+
+    case "www.liveleak.com":
+      if (aURL.match(/player\.swf.*?token=([^&]+)/))
+        return "http://www.liveleak.com/ll_embed?i=" + RegExp.$1
+      return aURL.replace("/e/", "/ll_embed?i=");
   }
 }
 
