@@ -6,9 +6,7 @@
 .PHONY: xpi
 
 xpi: clean
-	zip -r9 embedupdater-trunk.xpi install.rdf \
-                                 bootstrap.js \
-                                 chrome.manifest \
+	zip -r9 embedupdater-trunk.xpi manifest.json \
                                  content
 
 clean:

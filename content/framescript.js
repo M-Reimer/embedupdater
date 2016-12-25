@@ -1,6 +1,6 @@
 /*
 EmbedUpdater - Updates video embeds to make use of HTML5 video playback
-Copyright (C) 2015  Manuel Reimer <manuel.reimer@gmx.de>
+Copyright (C) 2016  Manuel Reimer <manuel.reimer@gmx.de>
 
 This program is free software: you can redistribute it and/or modify
 it under the terms of the GNU General Public License as published by
@@ -46,9 +46,6 @@ function RewriteEmbedURL(aURL) {
  */
 
 function OnPageLoad(aEvent) {
-  var document = aEvent.originalTarget;
-  if (document.nodeName != "#document") return; // only documents
-
   // Get objects and embeds. Out if there are none of them.
   var objects = document.getElementsByTagName("object");
   var embeds = document.getElementsByTagName("embed");
@@ -128,28 +125,4 @@ function GetObjectParam(aObj, aName) {
   return false;
 }
 
-/*
- * Framescript core code
- */
-
-// Holds our "Session filename"
-var gFileName;
-
-// Called on "Framescript startup"
-function Startup() {
-  var results = sendSyncMessage("embedupdater:get-framescript-filename");
-  if (results.length != 1)
-    return;
-  gFileName = results[0];
-  addMessageListener("embedupdater:shutdown-framescript", Shutdown);
-  addEventListener("DOMContentLoaded", OnPageLoad);
-}
-
-// Called by our "bootstrap.js" using message listener
-function Shutdown(message) {
-  if (message.data.filename != gFileName) return;
-  removeMessageListener("embedupdater:shutdown-framescript", Shutdown);
-  removeEventListener("DOMContentLoaded", OnPageLoad);
-}
-
-Startup();
+OnPageLoad();
